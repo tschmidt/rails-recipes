@@ -1,7 +1,9 @@
 # Email Configuration
 
-Rails Version | 4.1.4
-Gem Dependencies | none
+|Title|Description|
+|-----|-----------|
+|Rails Version|4.1.4|
+|Gem Dependencies|none|
 
 ## Step 1
 
