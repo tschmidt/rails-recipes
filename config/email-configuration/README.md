@@ -19,6 +19,12 @@ export MYAPP_EMAIL_USERNAME="some.email@some.dom"
 export MYAPP_EMAIL_PASSWORD="for_realz_super_secrets_yo!"
 ```
 
+What you choose to name the environment variable is really up to you. My advice to you is that you
+use a consistent naming structure, especially on your development machine. I am typically
+working on several applications at any given time which may require this type of setup.
+Using a naming convention where I prefix with the name of the app and then the config key
+has worked out fairly well.
+
 Make sure to reload your shell after doing this so that the changes are picked up.
 
 ### If you use Pow for development
