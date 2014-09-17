@@ -1,0 +1,8 @@
+<%= @projects.each do |project| %>
+<%= content_tag_for :div, project do %>
+  <h2><%= link_to project.name, project %></h2>
+  <p>
+    <%= project.description %>
+  </p>
+<%- end -%>
+<%- end -%>
