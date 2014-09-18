@@ -2,3 +2,12 @@
 <p><%= @project.description %></p>
 
 <%= link_to 'Add note', new_project_note_path(@project) %>
+
+<ul>
+  <%- @project.notes.each do |note| -%>
+  <%= content_tag_for :li, note do %>
+  <%= simple_format(note.content) %>
+  <%= link_to 'Edit' if note.user == current_user %>
+  <%- end -%>
+  <%- end -%>
+</ul>

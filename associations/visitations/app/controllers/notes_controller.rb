@@ -8,6 +8,7 @@ class NotesController < ApplicationController
   
   def create
     @note = @project.notes.build(note_params)
+    @note.user = current_user
     if @note.save
       redirect_to @project, notice: 'Your note was added'
     else

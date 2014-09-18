@@ -29,4 +29,13 @@ feature 'Create note' do
     end.to change { project.notes.count }.by(0)
     expect(page).to have_content("Content can't be blank")
   end
+  
+  it 'should set current user to the note user' do
+    expect do
+      click_link 'Add note'
+      fill_in 'Content', with: 'I did something...yay!'
+      click_button 'Create Note'
+    end.to change { project.notes.count }.by(1)
+    expect(Note.where(content: 'I did something...yay!').first.user).to eq(user)
+  end
 end
