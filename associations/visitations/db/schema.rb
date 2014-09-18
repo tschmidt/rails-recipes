@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916205834) do
+ActiveRecord::Schema.define(version: 20140917211310) do
 
   create_table "notes", force: true do |t|
-    t.integer "users_id"
-    t.integer "projects_id"
     t.text    "content"
+    t.integer "project_id"
+    t.integer "user_id"
   end
 
-  add_index "notes", ["projects_id"], name: "index_notes_on_projects_id"
-  add_index "notes", ["users_id"], name: "index_notes_on_users_id"
+  add_index "notes", ["project_id"], name: "index_notes_on_project_id"
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
   create_table "projects", force: true do |t|
     t.string "name"

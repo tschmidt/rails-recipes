@@ -1,0 +1,10 @@
+<%= form_for [@project, @note] do |f| %>
+  <%= error_messages_for @note %>
+  
+  <div class='form-group'>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  
+  <%= f.submit %>
+<%- end -%>

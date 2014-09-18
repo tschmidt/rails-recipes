@@ -1,4 +1,6 @@
-<%= @projects.each do |project| %>
+<%= link_to "New Project", new_project_path %>
+
+<%- @projects.each do |project| -%>
 <%= content_tag_for :div, project do %>
   <h2><%= link_to project.name, project %></h2>
   <p>

@@ -7,14 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+  <%= render 'common/nav' %>
 
   <%- flash.each do |key, val| -%>
   <div class='alert alert-<%= key %>'>
     <p><%= val %></p>
   </div>
   <%- end -%>
-
-  <%= yield %>
+  
+  <div class='container-fluid'>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
