@@ -1,13 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :require_signin!
   after_action :visited, only: :show
+  before_action :get_last_visited_at, only: :show
   
   def index
     @projects = Project.all
   end
   
   def show
-    @project = Project.find(params[:id])
   end
   
   def new
@@ -28,6 +28,11 @@ class ProjectsController < ApplicationController
   
   def project_params
     params.require(:project).permit(:name, :description)
+  end
+  
+  def get_last_visited_at
+    @project = Project.find(params[:id])
+    @last_visited_at = @project.visitations.where(user_id: current_user.id).first.try(:updated_at)
   end
   
   def visited

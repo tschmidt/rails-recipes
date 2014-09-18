@@ -5,7 +5,7 @@
 
 <ul>
   <%- @project.notes.each do |note| -%>
-  <%= content_tag_for :li, note, class: "#{'un' if note.created_at > project_last_visited_at(@project, current_user)}seen" do %>
+  <%= content_tag_for :li, note, class: "#{'un' if note.created_at > (@last_visited_at || Time.zone.now)}seen" do %>
   <%= simple_format(note.content) %>
   <%= link_to 'Edit' if note.user == current_user %>
   <%- end -%>

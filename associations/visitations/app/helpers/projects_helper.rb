@@ -9,12 +9,4 @@ module ProjectsHelper
     last_visited_at = project.visitations.where(user_id: user.id).first.updated_at
     project.notes.where(["created_at > ?", last_visited_at]).count
   end
-  
-  def project_last_visited_at(project, user)
-    if project.visitations.exists?(user_id: user.id)
-      project.visitations.where(user_id: user.id).first.updated_at
-    else
-      Time.zone.now
-    end
-  end
 end
