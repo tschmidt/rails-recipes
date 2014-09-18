@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917211310) do
+ActiveRecord::Schema.define(version: 20140918154838) do
 
   create_table "notes", force: true do |t|
     t.text    "content"
@@ -32,5 +32,15 @@ ActiveRecord::Schema.define(version: 20140917211310) do
     t.string "email"
     t.string "password_digest"
   end
+
+  create_table "visitations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visitations", ["project_id"], name: "index_visitations_on_project_id"
+  add_index "visitations", ["user_id"], name: "index_visitations_on_user_id"
 
 end

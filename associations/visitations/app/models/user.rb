@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :notes
+  has_many :visitations
   has_secure_password
   
   validates :name,  presence: true

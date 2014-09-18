@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :require_signin!
+  after_action :visited, only: :show
   
   def index
     @projects = Project.all
@@ -27,5 +28,13 @@ class ProjectsController < ApplicationController
   
   def project_params
     params.require(:project).permit(:name, :description)
+  end
+  
+  def visited
+    if @project.visitations.exists?(user_id: current_user.id)
+      @project.visitations.where(user_id: current_user.id).first.touch
+    else
+      @project.visitations.create(user: current_user)
+    end
   end
 end
